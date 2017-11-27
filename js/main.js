@@ -22,19 +22,15 @@ function action(){
 	})
 //on the image you clicked take the class off
 	this.classList.remove("nonActive");
-
+//change the markup to have different words from the objects
 	modelName.firstChild.nodeValue = objectIndex.model;
 	price.firstChild.nodeValue = objectIndex.price;
 	details.firstChild.nodeValue = objectIndex.description;
-
-
 }
 
 
 thumbImg.forEach(function(image, index){
 	image.addEventListener("click", action, false);
 });
-
-// F55.addEventListener("click", action, false);
 
 })();
