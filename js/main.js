@@ -4,7 +4,8 @@ var F55 = document.querySelector("#F55"),
 	F56 = document.querySelector("#F56"),
 	F58 = document.querySelector("#F58");
 
-var thumbImg = document.querySelectorAll(".thumbInfo img");
+// var thumbImg = document.querySelectorAll(".thumbInfo img");
+var thumbImg = document.querySelectorAll(".data-ref");
 console.log(thumbImg);
 
 var modelName = document.querySelector(".modelName"),
@@ -14,6 +15,7 @@ var modelName = document.querySelector(".modelName"),
 function action(){
 	console.log("clicked");
 	var objectIndex = carData[this.id];
+	console.log(objectIndex);
 //loop through all of the images in the array and give them the low-opacity class
 	thumbImg.forEach(function(image, index){
 		image.classList.add("nonActive");
@@ -21,11 +23,10 @@ function action(){
 //on the image you clicked take the class off
 	this.classList.remove("nonActive");
 
-	// objectIndex.forEach(function(image, index){
-	// 	var newtext = document.createElement("h4");
-	// 	newtext.src = objectIndex.model[index];
-	// 	newtext.dataset.index = index;
-	// })
+	modelName.firstChild.nodeValue = objectIndex.model;
+	price.firstChild.nodeValue = objectIndex.price;
+	details.firstChild.nodeValue = objectIndex.description;
+
 
 }
 
