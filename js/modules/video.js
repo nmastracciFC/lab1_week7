@@ -34,12 +34,31 @@ var video = {
 		overlay.classList.remove('show-overlay');
 	},
 
+	fetchVideoThumbs(){
+		const url = './includes/functions.php?getVideos=true';
+
+		fetch(url)
+			.then((resp) => resp.json())//convert result to json
+			.then((data) => {video.loadVideoThumbs(data);})
+			.catch(function(error) {
+				console.log(error);
+			});
+
+	},
+
+	loadVideoThumbs(data) {
+		debugger;
+
+	},
+
 
 	init() {
 		console.log('video module added');
 		video.videoPlayer.addEventListener('mouseover', video.volOn, false);
 		video.videoPlayer.addEventListener('mouseout', video.volOff, false);
 		video.videoPlayer.addEventListener('ended', video.popOverlay, false);
+
+		video.fetchVideoThumbs();
 	}
 
 
