@@ -28,6 +28,7 @@ function getCarData(){
 function processRequest() {
     let reqIndicator = document.querySelector('.request-state');
     reqIndicator.textContent = httpRequest.readyState;
+
     	// debugger;
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) { // 200 means everything is awesome
@@ -48,10 +49,12 @@ function processRequest() {
 function processCarData(data){
 	//destructuring asignment
 	const{ modelName, pricing, modelDetails} = data;
+	
 
-	var model = document.querySelector(".modelName").textContent = modelName,
-	price = document.querySelector(".priceInfo").innerHtml = pricing,
-	details = document.querySelector(".modelDetails").textContent = modelDetails;
+	let model = document.querySelector(".modelName").textContent = modelName;
+	let price = document.querySelector(".priceInfo").textContent = pricing;
+	let details = document.querySelector(".modelDetails").textContent = modelDetails;
+
 
 	// console.log("clicked");
 	// var objectIndex = carData[this.id];
@@ -68,10 +71,6 @@ function processCarData(data){
 	// price.firstChild.nodeValue = objectIndex.price;
 	// details.firstChild.nodeValue = objectIndex.description;
 }
-
-
-
-
 
 
 
